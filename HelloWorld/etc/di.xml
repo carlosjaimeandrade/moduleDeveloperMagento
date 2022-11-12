@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Webjump\HelloWorld\Api\HelloWorldRepositoryInterface" type="Webjump\HelloWorld\Model\HelloWorldRepository" />
+
+    <preference for="Webjump\HelloWorld\Api\Data\HelloWorldInterface" type="Webjump\HelloWorld\Model\HelloWorld" />
+
+    <type name="Magento\Framework\App\Action\Action">
+        <plugin
+            name="webjumpAction"
+            type="Webjump\HelloWorld\Plugin\Magento\App\ActionPlugin"/>
+    </type>
+
+    <type name="Webjump\HelloWorld\Model\CustomLog\Logger\Handler\Debug">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <type name="Webjump\HelloWorld\Model\CustomLog\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">custom-debug</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Webjump\HelloWorld\Model\CustomLog\Logger\Handler\Debug</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Webjump\HelloWorld\Model\CustomLog\Logger\Handler\Critical">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+
+    <type name="Webjump\HelloWorld\Model\CustomLog\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">custom-critical</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Webjump\HelloWorld\Model\CustomLog\Logger\Handler\Critical</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="exampleSayHello" xsi:type="object">Webjump\HelloWorld\Console\Sayhello</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ *
+ * @author      Webjump Core Team <dev@webjump.com>
+ * @copyright   2021 Webjump (http://www.webjump.com.br)
+ * @license     http://www.webjump.com.br Copyright
+ *
+ * @link        http://www.webjump.com.br
+ *
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/pet" method="POST">
+		<service class="Webjump\Pet\Api\PetRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Webjump_Pet::Pet_save"/>
+		</resources>
+	</route>
+	<route url="/V1/pet" method="GET">
+        <service class="Webjump\Pet\Api\PetRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Webjump_Pet::General"/>
+		</resources>
+	</route>
+	<route url="/V1/pet/:id" method="GET">
+        <service class="Webjump\Pet\Api\PetRepositoryInterface" method="getById"/>
+		<resources>
+            <resource ref="Webjump_Pet::General"/>
+		</resources>
+<!--        <resources>-->
+<!--            <resource ref="anonymous"/>-->
+<!--        </resources>-->
+	</route>
+	<route url="/V1/pet/:id" method="PUT">
+        <service class="Webjump\Pet\Api\PetRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Webjump_Pet::Pet_update"/>
+		</resources>
+	</route>
+    <route url="/V1/pet/:id" method="DELETE">
+        <service class="Webjump\Pet\Api\PetRepositoryInterface" method="delete"/>
+		<resources>
+			<resource ref="Webjump_Pet::Pet_delete"/>
+		</resources>
+	</route>
+</routes>

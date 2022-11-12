@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ *
+ * @author      Webjump Core Team <dev@webjump.com>
+ * @copyright   2021 Webjump (http://www.webjump.com.br)
+ * @license     http://www.webjump.com.br Copyright
+ *
+ * @link        http://www.webjump.com.br
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Webjump_Pet::Pet" title="Pet" sortOrder="10">
+                    <resource id="Webjump_Pet::General" title="General view" sortOrder="10"/>
+					<resource id="Webjump_Pet::Pet_save" title="Create pet" sortOrder="20"/>
+					<resource id="Webjump_Pet::Pet_delete" title="Delete pet" sortOrder="30"/>
+					<resource id="Webjump_Pet::Pet_update" title="Edit pet" sortOrder="40"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

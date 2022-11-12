@@ -1,0 +1,22 @@
+{
+    "name": "webjump/module-helloworld",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "dev@webjump.com.br",
+            "name": "Webjump"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Webjump\\HelloWorld\\": ""
+        }
+    }
+}

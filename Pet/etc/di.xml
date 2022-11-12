@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Webjump\Pet\Api\Data\PetInterface" type="Webjump\Pet\Model\Pet" />
+    <preference for="Webjump\Pet\Api\Data\PetSearchResultInterface" type="Webjump\Pet\Model\PetSearchResult" />
+    <preference for="Webjump\Pet\Api\PetRepositoryInterface" type="Webjump\Pet\Model\Repository\PetRepository" />
+
+    <virtualType name="Webjump\Pet\Model\ResourceModel\Pet\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">pet</argument>
+            <argument name="resourceModel" xsi:type="string">Webjump\Pet\Model\ResourceModel\Collection\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="webjump_pet_pet_listing_data_source" xsi:type="string">Webjump\Pet\Model\ResourceModel\Pet\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
