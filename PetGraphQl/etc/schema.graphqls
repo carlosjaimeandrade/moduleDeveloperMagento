@@ -8,6 +8,17 @@ type Query {
     petKind (id: String!): petKind  @resolver(class: "Webjump\\PetGraphQl\\Model\\Resolver\\PetKindFilter") @doc(description: "get one pet kind")
 }
 
+type Mutation {
+    setPetKind(
+        id: ID
+        name: String!
+        description: String!
+    ): Boolean @resolver(class: "Webjump\\PetGraphQl\\Model\\Resolver\\SetPetKind") @doc(description:"update/new pet kind")
+    deletePetKind(
+        id: ID!
+    ): Boolean @resolver(class: "Webjump\\PetGraphQl\\Model\\Resolver\\DelPetKind") @doc(description:"update/new pet kind")
+}
+
 type petKind {
     entity_id: ID! @doc(description: "id")
     name: String! @doc(description: "name")

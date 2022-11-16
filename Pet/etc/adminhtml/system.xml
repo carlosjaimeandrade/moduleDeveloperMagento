@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--~
+  ~ @author      Webjump Core Team <dev@webjump.com.br>
+  ~ @copyright   2022 Webjump (http://www.webjump.com.br)
+  ~ @license     http://www.webjump.com.br  Copyright
+  ~ @link        http://www.webjump.com.br
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="pet_kind_config" translate="label" type="text" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Pet kind</label>
+            <tab>customer</tab>
+            <resource>Webjump_Pet::Pet</resource>
+            <group id="options" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Options</label>
+                <field id="enable_pet_customer"  translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exibir pet para customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

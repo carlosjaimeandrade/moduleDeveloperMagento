@@ -7,6 +7,9 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 class PetResource extends AbstractDb
 {
 
+    const ENTITY_ID = 'entity_id';
+    const TABLE_NAME = 'pet';
+
     /**
      * Init construct
      *

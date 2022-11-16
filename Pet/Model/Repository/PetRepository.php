@@ -77,7 +77,7 @@ class PetRepository implements PetRepositoryInterface
         if (!$pet->getEntityId()) {
             throw new NoSuchEntityException(
                 __(
-                    'Product Pdf with id "%1" does not exist.',
+                    'Pet with id "%1" does not exist.',
                     $pet
                 )
             );
@@ -95,7 +95,6 @@ class PetRepository implements PetRepositoryInterface
     {
         /** @var Collection $collection */
         $collection = $this->collectionFactory->create();
-        var_dump($collection);
         $this->collectionProcessor->process($searchCriteria, $collection);
         /** @var PetSearchResultInterface $searchResults */
         $searchResults = $this->petSearchResultFactory->create();

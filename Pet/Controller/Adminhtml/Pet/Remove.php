@@ -10,7 +10,8 @@ use Magento\Framework\Controller\Result\Redirect;
 use Magento\Framework\Controller\ResultInterface;
 use Webjump\Pet\Model\Repository\PetRepository;
 
-class Remove extends Action
+class
+Remove extends Action
 {
 
     const WEBJUMP_PET_DELETE = 'Webjump_Pet::Pet_delete';

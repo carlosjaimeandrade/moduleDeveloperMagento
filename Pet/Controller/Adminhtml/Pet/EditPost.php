@@ -7,6 +7,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\Result\RedirectFactory;
+use Magento\Framework\Controller\ResultInterface;
 use Webjump\Pet\Api\Data\PetInterfaceFactory;
 use Webjump\Pet\Api\PetRepositoryInterface;
 
@@ -45,14 +46,15 @@ class EditPost extends Action
     /**
      * Edit one pet with base in id
      *
-     * @return ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
         $resultRedirect = $this->redirectFactory->create();
-        $id = $this->getRequest()->getParam('entity_id');
-        $name = $this->getRequest()->getParam('name');
-        $description = $this->getRequest()->getParam('description');
+        $request = $this->getRequest();
+        $id = $request->getParam('entity_id');
+        $name = $request->getParam('name');
+        $description = $request->getParam('description');
 
         try {
             $pet = $this->pet->create();
