@@ -77,7 +77,7 @@ class PetExtRepository implements PetExtRepositoryInterface
         if (!$petExt->getEntityId()) {
             throw new NoSuchEntityException(
                 __(
-                    'Product Pdf with id "%1" does not exist.',
+                    'Pet Kind with id "%1" does not exist.',
                     $petExt
                 )
             );

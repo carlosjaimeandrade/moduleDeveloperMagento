@@ -6,4 +6,10 @@
     <preference for="Webjump\PetExt\Api\Data\PetExtSearchResultInterface" type="Webjump\PetExt\Model\PetExtSearchResult" />
     <preference for="Webjump\PetExt\Api\PetExtRepositoryInterface" type="Webjump\PetExt\Model\Repository\PetExtRepository" />
 
+    <type name="Magento\Customer\Controller\Adminhtml\Index\Save">
+        <plugin
+            name="save_before_customer"
+            type="Webjump\PetExt\Plugin\Customer\Controller\Adminhtml\Index\SaveTest"/>
+    </type>
+
 </config>

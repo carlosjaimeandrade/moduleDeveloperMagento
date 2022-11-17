@@ -11,7 +11,7 @@
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">Select pet kind</label>
-                <dataScope>select_example</dataScope>
+                <dataScope>pet_kind_select</dataScope>
             </settings>
             <formElements>
                 <select>

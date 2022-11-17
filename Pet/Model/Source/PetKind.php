@@ -41,7 +41,7 @@ class PetKind implements OptionSourceInterface
         $pets = $collection->getItems();
         $petKind = [];
         foreach ($pets as $key => $pet){
-            $petKind[] = ['label'=> $pet->getName(), 'value' => $pet->getName()];
+            $petKind[] = ['label'=> $pet->getName(), 'value' => $pet->getEntityId()];
         }
         return $petKind;
     }
