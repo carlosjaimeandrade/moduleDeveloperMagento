@@ -4,6 +4,7 @@ namespace Webjump\Pet\Block\Page;
 
 use Magento\Customer\Model\Session;
 use Magento\Framework\View\Element\Template;
+use Magento\Setup\Exception;
 use Webjump\Pet\Model\Config\Data;
 use Webjump\PetExt\Model\ResourceModel\Collection\Collection;
 use Webjump\Pet\Model\Repository\PetRepository;
@@ -17,14 +18,23 @@ class Header extends Template
     private $petRepository;
     private CustomerCollection $customerCollection;
 
+    /**
+     * @param Template\Context $context
+     * @param Data $config
+     * @param Session $session
+     * @param Collection $collection
+     * @param PetRepository $petRepository
+     * @param CustomerCollection $customerCollection
+     * @param array $data
+     */
     public function __construct(
-        Template\Context $context,
-        Data $config,
-        Session $session,
-        Collection $collection,
-        PetRepository $petRepository,
+        Template\Context   $context,
+        Data               $config,
+        Session            $session,
+        Collection         $collection,
+        PetRepository      $petRepository,
         CustomerCollection $customerCollection,
-        array $data = []
+        array              $data = []
     )
     {
         parent::__construct($context, $data);
@@ -42,15 +52,18 @@ class Header extends Template
      */
     public function getEnable()
     {
+        if (!$this->session->isLoggedIn()) {
+            return "";
+        }
+
         $id = $this->session->getId();
 
-        $select = $this->customerCollection->getConnection()->select();
+        $select = $this->customerCollection->getSelect();
 
         $select->from(
             ['main_table' => "customer_entity"],
             ['entity_id']
-        )
-            ->join(
+        )->join(
             ['cev' => 'customer_entity_varchar'],
             'main_table.entity_id=cev.entity_id',
         )->where("main_table.entity_id = ?", $id);
@@ -60,11 +73,12 @@ class Header extends Template
         $petExt = $this->collection->addFieldToFilter('entity_id_customer', $id)->getFirstItem();
         $petKind = $this->petRepository->getById($petExt['entity_id_pet']);
 
-        if($this->config->getEnable()){
-            return "<b>Tipo de pet:</b> {$petKind['name']} | <b>nome do pet:</b> {$petName[0]['value']}";
+        if ($this->config->getEnable()) {
+            return "<b>Tipo de pet:</b> {$petKind['name']} | <b>Nome do pet:</b> {$petName[0]['value']}";
         }
 
         return "";
-    }
 
+
+    }
 }

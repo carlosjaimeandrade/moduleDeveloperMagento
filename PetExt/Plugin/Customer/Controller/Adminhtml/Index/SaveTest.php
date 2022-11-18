@@ -21,6 +21,14 @@ class SaveTest
     private Context $context;
     private CollectionCustomer $collectionCustomer;
 
+    /**
+     * @param PetExt $petExt
+     * @param PetExtRepository $petExtRepository
+     * @param RedirectFactory $redirectFactory
+     * @param Collection $collection
+     * @param Context $context
+     * @param CollectionCustomer $collectionCustomer
+     */
     public function __construct(
         PetExt $petExt,
         PetExtRepository $petExtRepository,
@@ -44,7 +52,6 @@ class SaveTest
     public function afterExecute(Save $subject, $result)
     {
         $request = $subject->getRequest()->getPostValue();
-
 
         $petKind = $request['customer']['pet_kind_select'];
 

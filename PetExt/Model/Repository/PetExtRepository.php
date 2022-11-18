@@ -63,7 +63,7 @@ class PetExtRepository implements PetExtRepositoryInterface
     }
 
     /**
-     * Get first item with params id
+     * Get first item with params id customer
      *
      * @param int $id
      * @return PetExtInterface
@@ -73,12 +73,13 @@ class PetExtRepository implements PetExtRepositoryInterface
     {
         /** @var PetExtInterface $petExt */
         $petExt = $this->petExtFactory->create();
-        $this->petExtResource->load($petExt, $id);
+        $this->petExtResource->load($petExt, $id, PetExtInterface::ENTITY_ID_CUSTOMER);
+
         if (!$petExt->getEntityId()) {
             throw new NoSuchEntityException(
                 __(
                     'Pet Kind with id "%1" does not exist.',
-                    $petExt
+                    $id
                 )
             );
         }

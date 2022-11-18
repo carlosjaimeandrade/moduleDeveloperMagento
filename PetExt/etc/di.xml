@@ -12,4 +12,10 @@
             type="Webjump\PetExt\Plugin\Customer\Controller\Adminhtml\Index\SaveTest"/>
     </type>
 
+<!--    <type name="Magento\Customer\Model\ResourceModel\CustomerRepository">-->
+<!--        <plugin-->
+<!--            name="plugin_customer_repository"-->
+<!--            type="Webjump\PetExt\Plugin\Customer\Model\ResourceModel\CustomerRepositoryPlugin"/>-->
+<!--    </type>-->
+
 </config>
