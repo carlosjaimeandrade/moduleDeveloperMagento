@@ -38,7 +38,7 @@ class Index extends Action
      */
     public function execute(): ResultInterface
     {
-        $test = $this->customerRepository->getById(2);
+        $test = $this->customerRepository->getById(2)->getExtensionAttributes()->getPetExt()->getEntityIdPet();
         var_dump($test);
         exit();
         $resultPage = $this->pageFactory->create();

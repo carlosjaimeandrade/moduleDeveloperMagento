@@ -1,7 +1,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
-    <extension_attributes for="Magento\InventoryApi\Api\Data\SourceInterface">
+    <extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
         <attribute code="pet_ext"
                    type="Webjump\PetExt\Api\Data\PetExtInterface">
             <join reference_table="pet_ext" reference_field="entity_id_customer"

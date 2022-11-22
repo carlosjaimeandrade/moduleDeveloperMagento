@@ -56,7 +56,7 @@ class CustomerRepositoryPlugin
     ): CustomerInterface
     {
         $extensionAttributes = $entity->getExtensionAttributes(); /** get original extension attributes from entity **/
-        $ourCustomData = $extensionAttributes->setPetExt();
+        $ourCustomData = $extensionAttributes->getPetExt();
         $this->petExtRepository->save($ourCustomData);
 
         $resultAttributes = $result->getExtensionAttributes(); /** get extension attributes as they exist after save **/
